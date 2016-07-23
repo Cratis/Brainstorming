@@ -1,0 +1,52 @@
+<html>
+
+<body>
+    <!--
+        Markupextensions
+
+        {NameOfMarkupExtension Property=value}
+
+        Can be nested..
+
+
+        String interpolation:
+
+        ${} - defaults to the {bind} markup extension
+
+        Examples of other markup extensions:
+
+        {string NameOfString} - typically localized
+
+        ElementProperty:
+            <property> e.g. <div style.height="${}">
+                .height = sub property - could be nested - property path
+
+    -->
+
+    <!-- helloworld.html -->
+    <template someproperty="Default Value">
+        <!-- Optional ViewModel declaration - if JavaScript file with same name exists, use it... -->
+        <viewmodel from="./helloworld.js" />
+    </template>
+
+    <helloworld someproperty="${}">
+    </helloworld>
+
+    <template id="tablerow" rowheight="15">
+        <tr style.height="${rowheight, mode=twoway, converter=name}">
+            <td>
+            </td>
+        </tr>
+    </template>
+
+    <table>
+        <tbody>
+            <tablerow/>
+        </tbody>
+    </table>
+
+    
+
+</body>
+
+</html>
